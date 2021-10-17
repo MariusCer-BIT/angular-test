@@ -1,0 +1,52 @@
+<h2>Produktai</h2>
+
+url=https://bit.lt/img/BIT_bl-RGB.png
+<div *ngFor="let product of products">
+
+<h3>
+  <a [title]=" 'Kaina: ' +product.price + ' eurai'">
+    {{ product.name }} kaina: {{ product.price }} eurai
+  </a>
+
+</h3>
+
+
+<!-- ngIf direktyvos panaudojimas, paslepti aprasyma
+jei aprasymo ilgis yra maziau uz 20, else dalyje nurodomas
+ng-template elementas, kuris bus atvaizduojamas jei salyga netenkinama -->
+
+<p *ngIf="product.description.length > 20; else noDescription">
+Description: {{ product.description }}
+</p>
+<ng-template #noDescription>
+  <p>Nera aprasymo</p>
+</ng-template>
+
+
+<button (click)="share()">
+  <i class="material-icons text-white">share</i>
+ Share to Facebook
+</button>
+
+<button (click)="shareTvitter()">
+<i class="material-icons text-white">share</i>
+Share to Twitter
+</button>
+
+<!-- TODO: Galima sukurti share to twitter mygtuka  -->
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
